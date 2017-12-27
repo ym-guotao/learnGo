@@ -2,10 +2,20 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/user/stringutil"
+	"runtime"
 )
 
 func main() {
-	fmt.Printf(stringutil.Reverse("!oG ,olleH"))
+	fmt.Print("Go runs on ")
+	fmt.Println(runtime.GOOS)
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X.")
+	case "linux":
+		fmt.Println("Linux.")
+	default:
+		// freebsd, openbsd,
+		// plan9, windows...
+		fmt.Printf("%s.", os)
+	}
 }
